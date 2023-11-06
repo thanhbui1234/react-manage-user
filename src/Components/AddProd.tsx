@@ -2,7 +2,7 @@ import Form from "react-bootstrap/Form";
 import { IProduct } from "../Interface/Product";
 import { useState, useContext } from "react";
 import { ProductContext } from "../Context/Product";
-import "../App.scss";
+import "./Add.scss";
 const AddProd = () => {
   const { onHandleAdd } = useContext(ProductContext);
   const [valueInput, setValueInput] = useState<IProduct>({

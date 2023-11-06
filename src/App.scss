@@ -1,8 +1,4 @@
-.fomrAdd {
-  padding: 0 150px;
-  .addTitle {
-    color: red;
-    text-align: center;
-    margin: 30px auto 0;
-  }
+.app-container {
+  display: grid;
+  grid-template-columns: 40% 60%;
 }
