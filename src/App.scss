@@ -1,4 +1,16 @@
 .app-container {
-  display: grid;
-  grid-template-columns: 40% 60%;
+  .btnAdd {
+    position: absolute;
+    top: 90px;
+    right: 303px;
+  }
+}
+
+.loading-container {
+  position: relative;
+  font-weight: bold;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

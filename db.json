@@ -31,34 +31,38 @@
       "id": 6
     },
     {
-      "name": "Sản phẩm mới updated",
-      "price": "300",
+      "name": "",
+      "description": "",
       "id": 7
-    },
-    {
-      "id": 8
-    },
-    {
-      "id": 9
-    },
-    {
-      "name": "wqe",
-      "description": "wqewq",
-      "id": 10
-    },
-    {
-      "name": "ewq",
-      "description": "wqe",
-      "id": 11
-    },
-    {
-      "name": "thanh",
-      "description": "wqethanh",
-      "id": 12
     },
     {
       "name": "",
       "description": "",
+      "id": 8
+    },
+    {
+      "name": "",
+      "description": "",
+      "id": 9
+    },
+    {
+      "name": "ưq",
+      "description": "dưq",
+      "id": 10
+    },
+    {
+      "name": "Bùi Chí Thanh",
+      "description": "Thanh",
+      "id": 11
+    },
+    {
+      "name": "ăe",
+      "description": "qưe",
+      "id": 12
+    },
+    {
+      "name": "Bùi Chí Thanh",
+      "description": "Bùi Chí Thanh",
       "id": 13
     },
     {
@@ -67,29 +71,19 @@
       "id": 14
     },
     {
-      "name": "",
-      "description": "",
+      "name": "thanh",
+      "description": "a",
       "id": 15
     },
     {
-      "name": "",
-      "description": "",
+      "name": "yeu cam ly",
+      "description": "yeu cam ly",
       "id": 16
     },
     {
       "name": "",
       "description": "",
       "id": 17
-    },
-    {
-      "name": "",
-      "description": "",
-      "id": 18
-    },
-    {
-      "name": "",
-      "description": "",
-      "id": 19
     }
   ]
 }
