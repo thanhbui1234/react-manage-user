@@ -6,9 +6,21 @@ import { toast } from "react-toastify";
 export const ProductContext = createContext([] as any);
 const ProductContexProvider = ({ children }: any) => {
   const [products, setProducts] = useState<IProduct[]>([]);
+  const [product, setProduct] = useState<IProduct>({});
   const [isloading, setLoading] = useState<Boolean>(false);
-  const onhandleDelete = (product: number) => {
-    console.log(product);
+  const onhandleDelete = (product: IProduct) => {
+    try {
+      (async () => {
+        await axios
+          .delete(`http://localhost:3000/products/${product.id}`)
+          .then(() =>
+            setProducts(products.filter((prod) => prod.id != product.id))
+          )
+          .then(() => toast.success("Xoa thanh cong"));
+      })();
+    } catch (error: any) {
+      toast.error(error.message);
+    }
   };
   useEffect(() => {
     (async () => {
@@ -38,13 +50,34 @@ const ProductContexProvider = ({ children }: any) => {
     }
   };
 
+  const onHandleUpdate = (product: IProduct) => {
+    console.log(product);
+  };
+
+  const getProductUpdate = (product: IProduct) => {
+    (async () => {
+      try {
+        await axios
+          .get(`http://localhost:3000/products/${product.id}`)
+          .then(({ data }) => setProduct(data));
+      } catch (error) {}
+    })();
+  };
+
   if (isloading) {
     return <div className="loading-container">loadding</div>;
   }
   return (
     <>
       <ProductContext.Provider
-        value={{ onHandleAdd, products, onhandleDelete }}
+        value={{
+          onHandleAdd,
+          products,
+          onhandleDelete,
+          getProductUpdate,
+          product,
+          onHandleUpdate,
+        }}
       >
         {children}
       </ProductContext.Provider>

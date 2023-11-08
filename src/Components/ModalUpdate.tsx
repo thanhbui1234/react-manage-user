@@ -1,8 +1,8 @@
 // export default AddProd;
 import Modal from "react-bootstrap/Modal";
-import AddProd from "./Modal";
+import Update from "./Update";
 
-function ModalAdd(props: any) {
+function ModalUpdate(props: any) {
   const { show, setShow } = props;
 
   const handleClose = () => setShow(!show);
@@ -11,10 +11,10 @@ function ModalAdd(props: any) {
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Add form</Modal.Title>
+          <Modal.Title>Update form</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <AddProd setShow={setShow} />
+          <Update setShow={setShow} />
         </Modal.Body>
         <Modal.Footer></Modal.Footer>
       </Modal>
@@ -22,4 +22,4 @@ function ModalAdd(props: any) {
   );
 }
 
-export default ModalAdd;
+export default ModalUpdate;

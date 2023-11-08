@@ -1,21 +1,22 @@
 import "./ListProd.scss";
 import { ProductContext } from "../Context/Product";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { IProduct } from "../Interface/Product";
 import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
-
+import ModalUpdate from "./ModalUpdate";
 const ListProd = () => {
-  const { products, onhandleDelete } = useContext(ProductContext);
+  const [show, setShow] = useState(false);
+  const { products, onhandleDelete, getProductUpdate } =
+    useContext(ProductContext);
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
-      confirmButton: "btn btn-success",
-      cancelButton: "btn btn-danger",
+      confirmButton: "btn mx-1 btn-success",
+      cancelButton: "btn mx-1 btn-danger",
     },
     buttonsStyling: false,
   });
 
-  const handleDelete = () => {
+  const handleDelete = (product: IProduct) => {
     swalWithBootstrapButtons
       .fire({
         title: "Are you sure?",
@@ -28,9 +29,16 @@ const ListProd = () => {
       })
       .then((result: any) => {
         if (result.isConfirmed) {
-          onhandleDelete(1);
+          onhandleDelete(product);
         }
       });
+  };
+
+  const handleUpdate = (productUpdate: IProduct) => {
+    getProductUpdate(productUpdate);
+    console.log(productUpdate);
+
+    setShow(!show);
   };
 
   return (
@@ -53,17 +61,23 @@ const ListProd = () => {
               <td>{product.description}</td>
               <td className="d-flex gap-3">
                 <button
-                  onClick={() => handleDelete()}
+                  onClick={() => handleDelete(product)}
                   className="btn btn-danger"
                 >
                   DELETE
                 </button>
-                <button className="btn btn-success">update</button>
+                <button
+                  onClick={() => handleUpdate(product)}
+                  className="btn btn-success"
+                >
+                  update
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      <ModalUpdate show={show} setShow={setShow} />
     </div>
   );
 };
